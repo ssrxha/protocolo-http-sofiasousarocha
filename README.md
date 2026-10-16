@@ -75,58 +75,10 @@ O print exibe o bloqueio de segurança com o código correspondente de acesso pr
 
 ### Respostas do comando `curl -i` no Terminal
 
-**Comando:** `curl -i http://localhost:3000/antigo`
-```text
-HTTP/1.1 301 Moved Permanently
-Location: /sobre
-Date: Thu, 15 Oct 2026 19:46:00 GMT
-Connection: keep-alive
-Keep-Alive: timeout=5
-Content-Length: 0
-```
-
-**Comando:** `curl -i http://localhost:3000/busca` *(Sem parâmetro)*
-```text
-HTTP/1.1 400 Bad Request
-Content-Type: text/html; charset=utf-8
-Date: Thu, 15 Oct 2026 19:46:05 GMT
-Connection: keep-alive
-Keep-Alive: timeout=5
-Transfer-Encoding: chunked
-
-<h1>Erro 400</h1><p>O parâmetro "termo" é obrigatório nesta rota.</p>
-```
-
-**Comando:** `curl -i -X POST http://localhost:3000/contato`
-```text
-HTTP/1.1 405 Method Not Allowed
-Allow: GET
-Content-Type: text/plain
-Date: Thu, 15 Oct 2026 19:46:10 GMT
-Connection: keep-alive
-Keep-Alive: timeout=5
-Transfer-Encoding: chunked
-
-Método Não Permitido
-```
-
----
-
 ## 3. Conclusão
 
 Após realizar esta pesquisa e aplicar os conceitos na prática, percebi que os servidores que vínhamos construindo em sala de aula de forma automática omitiam detalhes fundamentais sobre a comunicação na web. Eu mudaria a forma como tratamos as respostas: antes costumávamos responder quase tudo com o padrão genérico do navegador ou apenas com textos puros. Agora entendo a importância de explicitar o código de status correto (como usar um 400 ou 405 em vez de deixar a requisição travar ou retornar um erro genérico) e a obrigatoriedade de injetar cabeçalhos cruciais como o `Content-Type` com `charset=utf-8` para evitar problemas de acentuação e garantir que o cliente interprete a resposta exatamente como planejado.
 
----
-
-## 4. Referências
-
-FIELDING, R.; NOTTINGHAM, M.; RESCHKE, J. (ed.). **RFC 9110: HTTP Semantics**. IETF, 2022. Disponível em: <https://rfc-editor.org>. Acesso em: 15 out. 2026.
-
-MOZILLA. **HTTP | MDN Web Docs**. Disponível em: <https://mozilla.org>. Acesso em: 15 out. 2026.
-
-NODE.JS. **HTTP | Node.js Documentation**. Disponível em: <https://nodejs.org>. Acesso em: 15 out. 2026.
-
----
 
 ## 5. Declaração de Uso de IA
 
